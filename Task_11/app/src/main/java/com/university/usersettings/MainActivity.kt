@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         btnReset.setOnClickListener { resetPreferences() }
 
         btnViewSaved.setOnClickListener {
-            startActivity(Intent(this, SettingsViewerActivity::class.java))
+            startActivity(Intent(this, SettingsViewActivity::class.java))
         }
 
         fabProfile.setOnClickListener {
@@ -80,6 +80,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun saveSettings() {
+        val studentName = etStudentName.text.toString().trim()
+
+        if (studentName.isEmpty()) {
+            Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val prefs = getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
 
         val selectedTheme = when (rgTheme.checkedRadioButtonId) {
