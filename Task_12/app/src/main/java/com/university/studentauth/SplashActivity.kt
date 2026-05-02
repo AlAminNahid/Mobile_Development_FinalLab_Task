@@ -7,7 +7,6 @@ import android.os.Handler
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import kotlin.jvm.java
 
 class SplashActivity : AppCompatActivity() {
 
