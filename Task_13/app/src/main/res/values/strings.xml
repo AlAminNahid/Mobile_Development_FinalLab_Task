@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Student Course Manager</string>
+    <string name="my_courses">My Courses</string>
+    <string name="no_courses_title">No Courses Yet</string>
+    <string name="no_courses_sub">Tap the + button to add your first course</string>
+    <string name="add_course">Add Course</string>
+    <string name="edit_course">Edit Course</string>
+    <string name="course_detail">Course Detail</string>
+    <string name="save_course">Save Course</string>
+    <string name="update_course">Update Course</string>
+    <string name="cancel">Cancel</string>
+    <string name="search_hint">Search by name or code…</string>
+    <string name="field_required">This field is required</string>
+    <string name="course_saved">Course saved successfully</string>
+    <string name="course_updated">Course updated successfully</string>
+    <string name="course_deleted">Course deleted</string>
+    <string name="delete_confirm_title">Delete Course?</string>
+    <string name="delete_confirm_msg">This course will be permanently removed.</string>
+    <string name="delete">Delete</string>
+    <string name="not_specified">Not specified</string>
+
+    <string-array name="credit_hours">
+        <item>1 Credit</item>
+        <item>2 Credits</item>
+        <item>3 Credits</item>
+        <item>4 Credits</item>
+    </string-array>
+
+    <string-array name="semesters">
+        <item>Spring 2025</item>
+        <item>Summer 2025</item>
+        <item>Fall 2025</item>
+    </string-array>
+</resources>

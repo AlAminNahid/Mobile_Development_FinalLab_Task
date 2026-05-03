@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.StudentCourseManager"
+        parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/black_primary</item>
+        <item name="colorPrimaryDark">@color/black_secondary</item>
+        <item name="colorAccent">@color/black_soft</item>
+        <item name="android:windowBackground">@color/white_off</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black_primary</item>
+        <item name="materialAlertDialogTheme">@style/SCM.AlertDialog</item>
+    </style>
+
+    <style name="SCM.AlertDialog"
+        parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/black_primary</item>
+        <item name="buttonBarPositiveButtonStyle">@style/SCM.Button.Dialog.Positive</item>
+        <item name="buttonBarNegativeButtonStyle">@style/SCM.Button.Dialog.Negative</item>
+    </style>
+
+    <style name="SCM.Button.Dialog.Positive"
+        parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SCM.Button.Dialog.Negative"
+        parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
+
+    <style name="SCM.TextInputLayout.Outlined"
+        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/black_primary</item>
+        <item name="hintTextColor">@color/black_primary</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+    </style>
+
+    <style name="SCM.TextInputLayout.Dropdown"
+        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/black_primary</item>
+        <item name="hintTextColor">@color/black_primary</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+    </style>
+
+</resources>
