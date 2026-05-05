@@ -20,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddCourseActivity"
+            android:exported="false"/>
+        <activity android:name=".EditCourseActivity" android:exported="false"/>
+        <activity android:name=".CourseDetailActivity" android:exported="false"/>
     </application>
 
 </manifest>
