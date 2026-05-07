@@ -8,6 +8,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.card.MaterialCardView
 import com.university.newsapp.R
 import com.university.newsapp.model.User
 import com.university.newsapp.repository.PostRepository
@@ -23,7 +25,7 @@ class PostDetailActivity : AppCompatActivity() {
     private lateinit var commentsProgress: ProgressBar
     private lateinit var title: TextView
     private lateinit var body: TextView
-    private lateinit var authorCard: LinearLayout
+    private lateinit var authorCard: MaterialCardView
     private lateinit var authorName: TextView
     private lateinit var authorEmail: TextView
     private lateinit var authorCompany: TextView
@@ -32,6 +34,9 @@ class PostDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_detail)
+
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        toolbar.setNavigationOnClickListener { finish() }
 
         postProgress = findViewById(R.id.postProgress)
         authorProgress = findViewById(R.id.authorProgress)

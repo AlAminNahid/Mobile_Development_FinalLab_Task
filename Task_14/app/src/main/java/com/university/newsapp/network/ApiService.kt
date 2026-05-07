@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("post")
+    @GET("posts")
     suspend fun getAllPosts(): List<Post>
 
     @GET("posts/{id}")

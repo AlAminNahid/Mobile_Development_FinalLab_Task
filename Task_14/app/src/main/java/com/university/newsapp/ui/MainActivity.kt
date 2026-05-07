@@ -3,7 +3,6 @@ package com.university.newsapp.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -13,6 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.tabs.TabLayout
 import com.university.newsapp.R
 import com.university.newsapp.model.Post
 import com.university.newsapp.repository.PostRepository
@@ -30,11 +31,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var errorLayout: LinearLayout
     private lateinit var errorText: TextView
-    private lateinit var retryButton: Button
+    private lateinit var retryButton: MaterialButton
     private lateinit var searchView: SearchView
     private lateinit var swipeRefresh: SwipeRefreshLayout
-    private lateinit var postsTab: Button
-    private lateinit var usersTab: Button
+    private lateinit var tabLayout: TabLayout
 
     private var allPosts = listOf<Post>()
     private var currentTab = "posts"
@@ -50,8 +50,7 @@ class MainActivity : AppCompatActivity() {
         retryButton = findViewById(R.id.retryButton)
         searchView = findViewById(R.id.searchView)
         swipeRefresh = findViewById(R.id.swipeRefresh)
-        postsTab = findViewById(R.id.postsTab)
-        usersTab = findViewById(R.id.usersTab)
+        tabLayout = findViewById(R.id.tabLayout)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -65,19 +64,26 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.adapter = postAdapter
 
-        postsTab.setOnClickListener {
-            currentTab = "posts"
-            searchView.visibility = View.VISIBLE
-            recyclerView.adapter = postAdapter
-            postAdapter.submitList(allPosts)
-        }
-
-        usersTab.setOnClickListener {
-            currentTab = "users"
-            searchView.visibility = View.GONE
-            recyclerView.adapter = userAdapter
-            loadUsers()
-        }
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> {
+                        currentTab = "posts"
+                        searchView.visibility = View.VISIBLE
+                        recyclerView.adapter = postAdapter
+                        postAdapter.submitList(allPosts)
+                    }
+                    1 -> {
+                        currentTab = "users"
+                        searchView.visibility = View.GONE
+                        recyclerView.adapter = userAdapter
+                        loadUsers()
+                    }
+                }
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
 
         retryButton.setOnClickListener {
             if (currentTab == "posts") loadPosts() else loadUsers()
