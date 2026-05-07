@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.university.newsapp"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.university.newsapp"
